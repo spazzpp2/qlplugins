@@ -19,6 +19,7 @@ def get_bpm(cmd_path):
     try:
         bpm = check_output(cmd, shell=True)
         if bpm:
+            bpm = float(bpm.strip())
             song = formats.MusicFile(path)
             try:
                 assert song.can_change(TAG)
